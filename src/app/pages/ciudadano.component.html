@@ -1,0 +1,118 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+    <button class="btn btn-success navbar-toggler-right" [routerLink]="['/resumen']"><i class="fa fa-bar-chart"></i></button>
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/logo-gplan2.png" height="40" class="d-inline-block align-top" alt="logo-gplan">
+    </a>
+
+    <span class="navbar-text text-white pull-right">
+                PARTICIPACIÓN CIUDADANA DIGITAL "Actualización del PDOT Latacunga"
+          </span>
+
+</nav>
+<!-- Nav tabs -->
+<div *ngIf="cargando_tabla ">
+    <app-loading1></app-loading1>
+</div>
+<br>
+<div class="container main-container" *ngIf="!cargando_tabla">
+    <img src="assets/img/logo_gad_latacunga.png" class="img-fluid mx-auto d-block" alt="GADM Latacunga">
+    <div class="row">
+        <div class="col col-md"></div>
+        <div class="col-12 col-md-12">
+            <form #ciudadanoForm="ngForm" ngNativeValidate (ngSubmit)="guardar()">
+                <div class="form-group">
+                    <label class="col-form-label-lg" for="cedula_ciu"><strong>* Cédula:</strong></label>
+                    <input type="text" class="form-control form-control-lg" pattern="[0-9]{10}" [(ngModel)]="ciudadanoTarget.cedula_ciu" name="cedula_ciu" placeholder="Ingrese Cédula" required DirectivaNumeros>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label-lg" for="cedula_ciu"><strong>* Nombres:</strong></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="ciudadanoTarget.nombre_ciu" name="nombre_ciu" placeholder="Ingrese Nombres" required DirectivaMayusculas>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-form-label-lg"><b>* Autodentificación</b></label>
+                    <select class="form-control form-control-lg" name="pk_etnia" [(ngModel)]="ciudadanoTarget.fk_etia" required>
+                        <option value="null" disabled selected>Seleccione...</option> 
+                        <option *ngFor="let item of listaEtnias" [value]="item.pk_etnia">{{item.nombre_etnia}} </option> 
+                </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label-lg"><b>* Nacionalidad</b></label>
+                    <select class="form-control form-control-lg" id="pk_nacionalidad" name="fk_nacionalidad" [(ngModel)]="ciudadanoTarget.fk_nacionalidad" required>
+                        <option value="null" disabled selected>Seleccione...</option> 
+                        <option *ngFor="let item of listaNacionalidad" [value]="item.pk_nacionalidad">{{item.nombre_nacionalidad}} </option> 
+                </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label-lg"><b>* Ciudad</b></label>
+                    <ng-select [(ngModel)]="ciudadanoTarget.fk_ciudad" class="form-control form-control-lg" name="pk_ciudad" bindValue="pk_ciudad" placeholder="Seleccione.." bindLabel="nombre_ciudad" [items]="listaCiudad" required DirectivaMayusculas>
+                        <ng-template ng-option-tmp let-item="item">
+                            {{item.nombre_ciudad}}
+                        </ng-template>
+                    </ng-select>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label-lg"><b>* Parroquia</b></label>
+                    <select class="form-control" class="form-control form-control-lg" id="pk_parro" name="fk_parro" [(ngModel)]="ciudadanoTarget.fk_parro" required>
+                        <option value="null" disabled selected>Seleccione...</option> 
+                        <option *ngFor="let item of listaParroquias" [value]="item.pk_parro">{{item.nombre_parr}} </option> 
+                </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-form-label-lg"><b>* Edad</b></label>
+                    <select class="form-control" class="form-control form-control-lg" name="edad_ciu" [(ngModel)]="ciudadanoTarget.edad_ciu" required>
+                        <option value="null" disabled selected>Seleccione...</option> 
+                        <option value="5_14">5 - 14 Años</option> 
+                        <option value="15_29">15 - 29 Años</option> 
+                        <option value="30_64">30 - 64 Años</option>
+                        <option value="65">65+ Años </option> 
+                </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-form-label-lg"><b>* Sexo</b></label>
+                    <select class="form-control" class="form-control form-control-lg" name="sexo_ciu" [(ngModel)]="ciudadanoTarget.sexo_ciu" required>
+                        <option value="null" disabled selected>Seleccione...</option> 
+                        <option value="H">Hombre </option> 
+                        <option value="M">Mujer </option> 
+                </select>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-form-label-lg" for="contacto_ciu"><strong>Celular:</strong></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="ciudadanoTarget.contacto_ciu" name="contacto_ciu" placeholder="Ingrese Celular" DirectivaNumeros>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label-lg" for="correo"><strong>Correo:</strong></label>
+                    <input type="email" class="form-control form-control-lg" [(ngModel)]="ciudadanoTarget.correo" name="correo" placeholder="Ingrese Correo">
+                </div>
+
+
+                <div class=" form-group row">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar Información</button>
+                </div>
+
+
+
+
+
+            </form>
+            <hr>
+
+
+        </div>
+
+    </div>
+</div>

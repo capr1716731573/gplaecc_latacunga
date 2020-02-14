@@ -1,0 +1,203 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/logo-gplan2.png" height="40" class="d-inline-block align-top" alt="logo-gplan">
+    </a>
+
+    <span class="navbar-text text-white pull-right">
+                PARTICIPACIÓN CIUDADANA DIGITAL "Actualización del PDOT Latacunga"
+          </span>
+
+</nav>
+<br>
+<div class="container">
+    <img src="assets/img/logo_gad_latacunga.png" class="img-fluid mx-auto d-block" alt="GADM Latacunga">
+    <h3 class="text-center">PRINCIPALES PROBLEMAS DE LA CIUDAD</h3>
+
+
+
+    <!-- AMBIENTALES -->
+
+    <!-- AMBIENTALES -->
+    <div class="row form-group">
+        <h4>AMBIENTALES</h4>
+    </div>
+    <div class="row form-group form-group-image-checkbox">
+        <div class="col-6 col-md-2" *ngFor="let item of listaAmbientales">
+            <div class="custom-control custom-radio image-checkbox" [ngClass]="{'border-style: solid;border-color: blue;': item.existe}">
+                <input type="radio" class="custom-control-input" [id]="item.nombre_pro" name="environmental" [value]="item.existe" required="">
+                <label class="custom-control-label" [ngClass]="{'bg-success': item.existe}" [for]="item.nombre_pro">
+                      <figure class="figure" (click)="seleccionProblema(item)">
+                        <img [src]="item.foto_pro | foto_pipe:'A'" [alt]="item.nombre_pro" class="img-fluid">
+                        <figcaption class="figure-caption text-center" [ngClass]="{'text-white': item.existe}"><strong>{{ item.nombre_pro }}</strong> </figcaption>
+                      </figure>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- ECONOMICO PRODUCTIVO -->
+    <div class="row">
+        <h4>ECONÓMICO PRODUCTIVO</h4>
+    </div>
+    <div class="row form-group form-group-image-checkbox">
+        <div class="col-6 col-md-2" *ngFor="let item of listaEconomicoProductivo ">
+            <div class="custom-control custom-radio image-checkbox" [ngClass]="{'border-style: solid;border-color: blue;': item.existe}">
+                <input type="radio" class="custom-control-input" [id]="item.nombre_pro" name="environmental" [value]="item.existe" required="">
+                <label class="custom-control-label" [ngClass]="{'bg-success': item.existe}" [for]="item.nombre_pro">
+                      <figure class="figure" (click)="seleccionProblema(item)">
+                        <img [src]="item.foto_pro | foto_pipe:'EP'" [alt]="item.nombre_pro" class="img-fluid">
+                        <figcaption class="figure-caption text-center" [ngClass]="{'text-white': item.existe}"><strong>{{ item.nombre_pro }}</strong> </figcaption>
+                      </figure>
+                </label>
+            </div>
+        </div>
+    </div>
+    <!-- SOCIO CULTURAL -->
+    <div class="row">
+        <h4>SOCIO CULTURAL</h4>
+    </div>
+    <div class="row form-group form-group-image-checkbox">
+        <div class="col-6 col-md-2" *ngFor="let item of listaSocioCultural ">
+            <div class="custom-control custom-radio image-checkbox" [ngClass]="{'border-style: solid;border-color: blue;': item.existe}">
+                <input type="radio" class="custom-control-input" [id]="item.nombre_pro" name="environmental" [value]="item.existe" required="">
+                <label class="custom-control-label" [ngClass]="{'bg-success': item.existe}" [for]="item.nombre_pro">
+                      <figure class="figure" (click)="seleccionProblema(item)">
+                        <img [src]="item.foto_pro | foto_pipe:'SC'" [alt]="item.nombre_pro" class="img-fluid">
+                        <figcaption class="figure-caption text-center" [ngClass]="{'text-white': item.existe}"><strong>{{ item.nombre_pro }}</strong> </figcaption>
+                      </figure>
+                </label>
+            </div>
+        </div>
+    </div>
+    <!-- ASENTAMIENTOS HUMANOS -->
+    <div class="row">
+        <h4>ASENTAMIENTOS HUMANOS</h4>
+    </div>
+    <div class="row form-group form-group-image-checkbox">
+        <div class="col-6 col-md-2" *ngFor="let item of listaAsentamientosHumanos ">
+            <div class="custom-control custom-radio image-checkbox" [ngClass]="{'border-style: solid;border-color: blue;': item.existe}">
+                <input type="radio" class="custom-control-input" [id]="item.nombre_pro" name="environmental" [value]="item.existe" required="">
+                <label class="custom-control-label" [ngClass]="{'bg-success': item.existe}" [for]="item.nombre_pro">
+                      <figure class="figure" (click)="seleccionProblema(item)">
+                        <img [src]="item.foto_pro | foto_pipe:'AH'" [alt]="item.nombre_pro" class="img-fluid">
+                        <figcaption class="figure-caption text-center" [ngClass]="{'text-white': item.existe}"><strong>{{ item.nombre_pro }}</strong> </figcaption>
+                      </figure>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRANSPORTE MOVILIDAD -->
+    <div class="row">
+        <h4>TRANSPORTE Y MOVILIDAD</h4>
+    </div>
+    <div class="row form-group form-group-image-checkbox">
+        <div class="col-6 col-md-2" *ngFor="let item of listaTransporteMovilidad ">
+            <div class="custom-control custom-radio image-checkbox" [ngClass]="{'border-style: solid;border-color: blue;': item.existe}">
+                <input type="radio" class="custom-control-input" [id]="item.nombre_pro" name="environmental" [value]="item.existe" required="">
+                <label class="custom-control-label" [ngClass]="{'bg-success': item.existe}" [for]="item.nombre_pro">
+                      <figure class="figure" (click)="seleccionProblema(item)">
+                        <img [src]="item.foto_pro | foto_pipe:'TM'" [alt]="item.nombre_pro" class="img-fluid">
+                        <figcaption class="figure-caption text-center" [ngClass]="{'text-white': item.existe}"><strong>{{ item.nombre_pro }}</strong> </figcaption>
+                      </figure>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- ENERGIA Y TELECOMUNICACIONES -->
+    <div class="row">
+        <h4>ENERGÍA Y TELECOMUNICACIONES</h4>
+    </div>
+    <div class="row form-group form-group-image-checkbox">
+        <div class="col-6 col-md-2" *ngFor="let item of listaEnegriaTelecomunicaciones ">
+            <div class="custom-control custom-radio image-checkbox" [ngClass]="{'border-style: solid;border-color: blue;': item.existe}">
+                <input type="radio" class="custom-control-input" [id]="item.nombre_pro" name="environmental" [value]="item.existe" required="">
+                <label class="custom-control-label" [ngClass]="{'bg-success': item.existe}" [for]="item.nombre_pro">
+                      <figure class="figure" (click)="seleccionProblema(item)">
+                        <img [src]="item.foto_pro | foto_pipe:'ET'" [alt]="item.nombre_pro" class="img-fluid">
+                        <figcaption class="figure-caption text-center" [ngClass]="{'text-white': item.existe}"><strong>{{ item.nombre_pro }}</strong> </figcaption>
+                      </figure>
+                </label>
+            </div>
+        </div>
+    </div>
+    <!-- POLITICO INSTITUCIONAL -->
+    <div class="row">
+        <h4>POLÍTICO INSTITUCIONAL</h4>
+    </div>
+    <div class="row form-group form-group-image-checkbox">
+        <div class="col-6 col-md-2" *ngFor="let item of listaPoliticoInstitucional ">
+            <div class="custom-control custom-radio image-checkbox" [ngClass]="{'border-style: solid;border-color: blue;': item.existe}">
+                <input type="radio" class="custom-control-input" [id]="item.nombre_pro" name="environmental" [value]="item.existe" required="">
+                <label class="custom-control-label" [ngClass]="{'bg-success': item.existe}" [for]="item.nombre_pro">
+                      <figure class="figure" (click)="seleccionProblema(item)">
+                        <img [src]="item.foto_pro | foto_pipe:'PI'" [alt]="item.nombre_pro" class="img-fluid">
+                        <figcaption class="figure-caption text-center" [ngClass]="{'text-white': item.existe}"><strong>{{ item.nombre_pro }}</strong> </figcaption>
+                      </figure>
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" (blur)="enviarInfo(3,true)" [(ngModel)]="explicaProblema" name="explicaProblema" placeholder="Explique su problema">
+    </div>
+    <br>
+    <!-- RIESGOS -->
+    <div class="row">
+        <h4>RIESGOS</h4>
+    </div>
+    <div class="row form-group form-group-image-checkbox">
+        <div class="col-6 col-md-2" *ngFor="let item of listaRiesgos ">
+            <div class="custom-control custom-radio image-checkbox" [ngClass]="{'border-style: solid;border-color: blue;': item.existe}">
+                <input type="radio" class="custom-control-input" [id]="item.nombre_pro" name="environmental" [value]="item.existe" required="">
+                <label class="custom-control-label" [ngClass]="{'bg-success': item.existe}" [for]="item.nombre_pro">
+                      <figure class="figure" (click)="seleccionProblema(item)">
+                        <img [src]="item.foto_pro | foto_pipe:'R'" [alt]="item.nombre_pro" class="img-fluid">
+                        <figcaption class="figure-caption text-center" [ngClass]="{'text-white': item.existe}"><strong>{{ item.nombre_pro }}</strong> </figcaption>
+                      </figure>
+                </label>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    <div class="form-group row">
+        <label class="col-sm-6 col-form-label-lg">
+            Desea que Latacunga sea una ciudad con resiliencia urbana?
+        </label>
+        <div class="btn-group btn-group-lg btn-group-toggle col-sm-6" data-toggle="buttons" ngbRadioGroup name="radiop1" [(ngModel)]="pregunta1">
+            <label ngbButtonLabel class="btn-outline-primary col-12" [ngClass]="{'active': pregunta1}" (click)="enviarInfo(1,true)">
+          <input ngbButton type="radio" [value]="true"> SI
+        </label>
+            <label ngbButtonLabel class="btn-outline-primary col-12" [ngClass]="{'active': !pregunta1}" (click)="enviarInfo(1,false)">
+          <input ngbButton type="radio" [value]="false"> NO
+        </label>
+
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label class="col-sm-6 col-form-label-lg">
+          Desea que Latacunga sea una ciudad sostenible?
+        </label>
+        <div class="btn-group btn-group-lg btn-group-toggle col-sm-6" data-toggle="buttons" ngbRadioGroup name="radiop2" [(ngModel)]="pregunta2">
+            <label ngbButtonLabel class="btn-outline-primary col-12" [ngClass]="{'active': pregunta2}" (click)="enviarInfo(2,true)">
+          <input ngbButton type="radio" [value]="true"> SI
+        </label>
+            <label ngbButtonLabel class="btn-outline-primary col-12" [ngClass]="{'active': !pregunta2}" (click)="enviarInfo(2,false)">
+          <input ngbButton type="radio" [value]="false"> NO
+        </label>
+
+        </div>
+    </div>
+
+    <div class=" form-group row">
+        <button type="button" (click)="salir()" routerLinkActive="router-link-active" class="btn btn-primary btn-lg btn-block">Salir</button>
+    </div>
+
+</div>

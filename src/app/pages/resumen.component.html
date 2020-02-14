@@ -1,0 +1,148 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+
+    <button class="btn btn-success navbar-toggler-right" [routerLink]="['/ciudadano']"><i class="fa fa-user"></i></button>
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/logo-gplan2.png" height="40" class="d-inline-block align-top" alt="logo-gplan">
+    </a>
+
+    <span class="navbar-text text-white pull-right">
+                PARTICIPACIÓN CIUDADANA DIGITAL "Actualización del PDOT Latacunga"
+          </span>
+
+</nav>
+<br>
+<div class="container">
+    <!-- Nav tabs -->
+    <div *ngIf="cargando_tabla ">
+        <app-loading1></app-loading1>
+    </div>
+    <div *ngIf="!cargando_tabla">
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-title text-center">
+                        TOTALES POR TIPO DE PROBLEMA
+                    </div>
+                    <div class="card-body">
+                        <div style="display: block">
+                            <canvas baseChart [datasets]="valoresTotales" [labels]="labelsTotales" [options]="barChartOptions" [colors]="barChartColors" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+                </canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-title text-center">
+                        AMBIENTALES
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [data]="listaAmbientales[1]" [labels]="listaAmbientales[0]" [chartType]="pieChartType" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                    </canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-title text-center">
+                        ECONÓMICO-PRODUCTIVO
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [data]="listaEconomicoProductivo[1]" [labels]="listaEconomicoProductivo[0]" [chartType]="pieChartType" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                    </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-title text-center">
+                        SOCIO-CULTURAL
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [data]="listaSocioCultural[1]" [labels]="listaSocioCultural[0]" [chartType]="pieChartType" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                    </canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-title text-center">
+                        ASENTAMIENTOS-HUMANOS
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [data]="listaAsentamientosHumanos[1]" [labels]="listaAsentamientosHumanos[0]" [chartType]="pieChartType" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                    </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-title text-center">
+                        TRANSPORTE Y MOVILIDAD
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [data]="listaTransporteMovilidad[1]" [labels]="listaTransporteMovilidad[0]" [chartType]="pieChartType" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                    </canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-title text-center">
+                        ENERGÍA Y TELECOMUNICACIONES
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [data]="listaEnergiaTelecomunicaciones[1]" [labels]="listaEnergiaTelecomunicaciones[0]" [chartType]="pieChartType" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                    </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-title text-center">
+                        POLÍTICO INSTITUCIONAL
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [data]="listaPoliticoInstitucional[1]" [labels]="listaPoliticoInstitucional[0]" [chartType]="pieChartType" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                    </canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-title text-center">
+                        RIESGOS
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [data]="listaRiesgos[1]" [labels]="listaRiesgos[0]" [chartType]="pieChartType" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                    </canvas>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+</div>

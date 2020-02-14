@@ -1,0 +1,19 @@
+export interface CiudadanoModel{
+    pk_ciu:number,
+    cedula_ciu:string,
+    nombre_ciu:string,
+    fk_etia:number,
+    fk_nacionalidad:number,
+    fk_ciudad:number,
+    fk_parro:number,
+    contacto_ciu:string,
+    correo:string,
+    edad_ciu:string,
+    sexo_ciu:string,
+    fecha_ciu:any,
+    hora_ciu:any,
+    detalleproblema_ciu:string,
+    pregunta1_ciu:string,
+    pregunta2_ciu:string,
+    pregunta3_ciu:string
+}
