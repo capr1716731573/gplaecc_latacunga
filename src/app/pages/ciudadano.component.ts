@@ -23,6 +23,7 @@ export class CiudadanoComponent implements OnInit {
   listaParroquias:any[]=[];
   listaEtnias:any[]=[];
   listaNacionalidad:any[]=[];
+  banderaEsLatacunga:boolean=false;
 
    //MENSAJES TOAST
    toast = swal.mixin({
@@ -67,7 +68,7 @@ export class CiudadanoComponent implements OnInit {
     this.cargarCiudad();
     this.cargarEtnia();
     this.cargarNacional();
-    this.cargarParroquia();
+    //this.cargarParroquia();
 
   }
 
@@ -127,6 +128,16 @@ export class CiudadanoComponent implements OnInit {
           })
           return;
         }else{
+          if((this.banderaEsLatacunga && this.listaParroquias.length > 0) && !this.ciudadanoTarget.fk_parro){
+            swal.fire({
+              //position: 'top',
+              type: 'warning',
+              title: `Debe seleccionar la parroquia, ya que selecciono la ciudad de Latacunga`,
+              showConfirmButton: false,
+              timer: 3000
+            })
+            return;
+          }
            //Guardar informacion
            this._ciudadanoService.crud('I',this.ciudadanoTarget)
            .subscribe((resp:any) => {
@@ -232,7 +243,30 @@ export class CiudadanoComponent implements OnInit {
       // Imprimimos en consola si la cedula tiene mas o menos de 10 digitos
       return false;
     }
-  
+    
+
+  }
+
+  changeCiudad(dato:any){
+    console.log(JSON.stringify(dato));
+    if(dato.hasOwnProperty('nombre_ciudad')){
+      if(dato.nombre_ciudad.replace(/ /g, "").toLowerCase() === 'latacunga'){
+        this.cargarParroquia();
+        this.banderaEsLatacunga=true;
+      }else{
+        this.listaParroquias=[];
+        this.banderaEsLatacunga=false;
+      }
+    }else{
+      this.listaParroquias=[];
+      this.banderaEsLatacunga=false;
+    }
+  }
+
+  clearCiudad(){
+    this.listaParroquias=[];
+    this.ciudadanoTarget.fk_parro=null;
+    this.banderaEsLatacunga=false;
   }
 
 }

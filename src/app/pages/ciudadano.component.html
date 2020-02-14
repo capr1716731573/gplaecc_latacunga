@@ -49,7 +49,8 @@
 
                 <div class="form-group">
                     <label class="col-form-label-lg"><b>* Ciudad</b></label>
-                    <ng-select [(ngModel)]="ciudadanoTarget.fk_ciudad" class="form-control form-control-lg" name="pk_ciudad" bindValue="pk_ciudad" placeholder="Seleccione.." bindLabel="nombre_ciudad" [items]="listaCiudad" required DirectivaMayusculas>
+                    <ng-select [(ngModel)]="ciudadanoTarget.fk_ciudad" class="form-control form-control-lg" (clear)="clearCiudad()" (change)="changeCiudad($event)" name="pk_ciudad" bindValue="pk_ciudad" placeholder="Seleccione.." bindLabel="nombre_ciudad" [items]="listaCiudad"
+                        required DirectivaMayusculas>
                         <ng-template ng-option-tmp let-item="item">
                             {{item.nombre_ciudad}}
                         </ng-template>
@@ -58,7 +59,7 @@
 
                 <div class="form-group">
                     <label class="col-form-label-lg"><b>* Parroquia</b></label>
-                    <select class="form-control" class="form-control form-control-lg" id="pk_parro" name="fk_parro" [(ngModel)]="ciudadanoTarget.fk_parro" required>
+                    <select class="form-control" class="form-control form-control-lg" id="pk_parro" name="fk_parro" [(ngModel)]="ciudadanoTarget.fk_parro">
                         <option value="null" disabled selected>Seleccione...</option> 
                         <option *ngFor="let item of listaParroquias" [value]="item.pk_parro">{{item.nombre_parr}} </option> 
                 </select>
