@@ -32,7 +32,7 @@
         "exceljs": "^1.10.0",
         "file-saver": "^2.0.2",
         "html2canvas": "^1.0.0-rc.3",
-        "jspdf": "^1.5.3",
+        "jspdf": "^2.3.1",
         "jwt-decode": "^2.2.0",
         "ng2-charts": "^2.2.3",
         "ng2-search-filter": "^0.4.7",
